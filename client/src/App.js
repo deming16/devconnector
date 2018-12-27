@@ -10,6 +10,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard'
 import AddExperience from './components/add-credentials/AddExperience';
+import AddEducation from './components/add-credentials/AddEducation';
 import CreateProfile from './components/create-profile/CreateProfile';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
@@ -61,6 +62,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/add-experience" component={AddExperience} />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/add-education" component={AddEducation} />
               </Switch>
             </div>
             <Footer />

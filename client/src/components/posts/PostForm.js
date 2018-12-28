@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { addPost } from '../../actions/postActions';
+import { addPost, getPosts } from '../../actions/postActions';
 
 class PostForm extends Component {
   constructor(props) {
@@ -48,9 +48,7 @@ class PostForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">
-            Say Somthing...
-        </div>
+          <div className="card-header bg-info text-white">Say Somthing...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -62,7 +60,9 @@ class PostForm extends Component {
                   error={errors.text}
                 />
               </div>
-              <button type="submit" className="btn btn-dark">Submit</button>
+              <button type="submit" className="btn btn-dark">
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -75,6 +75,7 @@ PostForm.propTypes = {
   errors: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   addPost: PropTypes.func.isRequired,
+  getPosts: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -82,4 +83,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { addPost })(PostForm);
+export default connect(mapStateToProps, { addPost, getPosts })(PostForm);

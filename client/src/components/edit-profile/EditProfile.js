@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
@@ -50,7 +50,7 @@ class CreateProfile extends Component {
       const skillsCSV = profile.skills.join(',');
 
       // If profile field doesnt exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.comapany : '';
+      profile.company = !isEmpty(profile.company) ? profile.company : '';
       profile.website = !isEmpty(profile.website) ? profile.website : '';
       profile.location = !isEmpty(profile.location) ? profile.location : '';
       profile.githubusername = !isEmpty(profile.githubusername) ? profile.githubusername : '';
@@ -65,7 +65,7 @@ class CreateProfile extends Component {
       // Set component fields state
       this.setState( {
         handle: profile.handle,
-        company: profile.comapany,
+        company: profile.company,
         website: profile.website,
         location: profile.location,
         status: profile.status,
@@ -87,7 +87,7 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      company: this.state.comapany,
+      company: this.state.company,
       website: this.state.website,
       location: this.state.location,
       status: this.state.status,
@@ -183,6 +183,9 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
+            <Link to="/dashboard" className="btn btn-light">
+                Go Back
+              </Link>
               <h1 className="display-4 text-center">Edit Profile</h1>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>

@@ -179,8 +179,8 @@ router.post('/experience', passport.authenticate('jwt', { session: false }), (re
       // Add to exp array
       profile.experience.unshift(newExp);
 
-      profile.save().then(profile => res.json(profile))
-    })
+      profile.save().then(profile => res.json(profile));
+    });
 });
 
 // @route   POST api/profile/education
@@ -245,7 +245,7 @@ router.delete('/education/:edu_id', passport.authenticate('jwt', { session: fals
       // Get remove index
       const removeIndex = profile.education
         .map(item => item.id)
-        .indexOf(req.params.exp_id);
+        .indexOf(req.params.edu_id);
 
       // Splice out of array
       profile.education.splice(removeIndex, 1);

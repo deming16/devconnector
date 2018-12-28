@@ -1,6 +1,6 @@
 const initialState = {
   posts: [],
-  post: (),
+  post: {},
   loading: false
 };
 
